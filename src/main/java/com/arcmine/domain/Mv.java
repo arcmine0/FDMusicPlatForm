@@ -11,5 +11,7 @@ public class Mv {
     private Integer id;
     private String title;
     private String artist;
+    private String style;
     private String introduction;
+    private String url;
 }

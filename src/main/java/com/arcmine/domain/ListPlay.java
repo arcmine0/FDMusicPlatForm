@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class listplay {
-    private Integer id;
+public class ListPlay {
     private Integer songid;
     private Integer playlistid;
 }

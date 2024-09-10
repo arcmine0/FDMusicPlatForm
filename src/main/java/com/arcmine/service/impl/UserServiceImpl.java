@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService implements com.arcmine.service.UserService {
+public class UserServiceImpl implements com.arcmine.service.UserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -15,5 +15,11 @@ public class UserService implements com.arcmine.service.UserService {
     public User getUserByAccount(String account) {
         User user = userMapper.getUserByAccount(account);
         return user;
+    }
+
+    @Override
+    public Integer changeInfo(User user) {
+        Integer changeUser = userMapper.changeInfo(user);
+        return changeUser;
     }
 }

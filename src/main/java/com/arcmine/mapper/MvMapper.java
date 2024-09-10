@@ -1,12 +1,13 @@
 package com.arcmine.mapper;
 
-import com.arcmine.domain.User;
+import com.arcmine.domain.Mv;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Mapper
 @Repository
-public interface UserMapper {
-    User getUserByAccount(String account);
-    Integer changeInfo(User user);
+public interface MvMapper {
+    List<Mv> getMvByStyle(String style);
 }

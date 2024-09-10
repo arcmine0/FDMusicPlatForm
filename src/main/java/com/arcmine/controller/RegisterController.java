@@ -18,18 +18,12 @@ public class RegisterController {
 
     @PostMapping("/register")
     public ResponseResult register(@RequestBody User user) {
-        Integer register=null;
-//        try {
-//            register = registerService.register(user);
-//            System.out.println(register);
-//        } catch (Exception e) {
-//            return new ResponseResult(300,"注册失败，账号已存在");
-//        }
-        register=registerService.register(user);
-        if (register == 1) {
-            return new ResponseResult(200,"注册成功");
-        } else {
-            return new ResponseResult(300,"注册失败，账号已存在");
+        try {
+            Integer register = registerService.register(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseResult(300, "注册失败，账号已存在");
         }
+            return new ResponseResult(200, "注册成功");
     }
 }
