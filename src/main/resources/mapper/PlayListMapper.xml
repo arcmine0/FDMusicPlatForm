@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.arcmine.mapper.PlayListMapper">
+    <insert id="createPlayList">
+        insert into playlist value (null,#{title},#{picture},#{introduction},#{useraccount})
+    </insert>
+    <update id="changeListInfo">
+        update playlist set title = #{title},picture = #{picture},introduction = #{introduction} where id = #{id}
+    </update>
+    <delete id="deleteSong">
+        delete from listplay where songid = #{songId} and playlistid = #{playListId}
+    </delete>
+    <delete id="deletePlayList">
+        delete from playlist where id = #{id}
+    </delete>
     <select id="getPlayLists" resultType="com.arcmine.domain.PlayList">
         select * from playlist where useraccount = #{account}
+    </select>
+    <select id="getSongs" resultType="com.arcmine.domain.Song">
+        select * from song where id = any(select songid from listplay where playlistid = #{playListId})
     </select>
 </mapper>

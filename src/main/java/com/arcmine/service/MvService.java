@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface MvService {
     List<Mv> getMvByStyle(String style);
+    Mv getMvById(Integer id);
 }

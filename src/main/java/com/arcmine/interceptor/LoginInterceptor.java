@@ -14,8 +14,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("token");
         if(!StringUtils.hasText(token)) {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-            return false;
+            throw new RuntimeException("未登录，请重新登录");
         }
         try {
             Claims claims = JwtUtil.parseJWT(token);
@@ -23,8 +22,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             System.out.println(subject);
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-            return false;
+            throw new RuntimeException("未登录，请重新登录");
         }
         return true;
     }

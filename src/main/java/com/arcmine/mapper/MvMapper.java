@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface MvMapper {
     List<Mv> getMvByStyle(String style);
+    Mv getMvById(Integer id);
 }

@@ -32,4 +32,10 @@ public class SongServiceImpl implements SongService {
         ListPlay exists = songMapper.isSongInPlayList(songId, playListId);
         return exists;
     }
+
+    @Override
+    public Song getSongById(Integer id) {
+        Song song = songMapper.getSongById(id);
+        return song;
+    }
 }

@@ -9,4 +9,5 @@ public interface SongService {
     List<Song> getSongByStyle(String style);
     Integer addToPlayList(Integer songId,Integer playListId);
     ListPlay isSongInPlayList(Integer songId, Integer playListId);
+    Song getSongById(Integer id);
 }

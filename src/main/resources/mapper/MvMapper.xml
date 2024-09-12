@@ -4,4 +4,7 @@
     <select id="getMvByStyle" resultType="com.arcmine.domain.Mv">
         select * from mv where style = #{style} order by rand() limit 2
     </select>
+    <select id="getMvById" resultType="com.arcmine.domain.Mv">
+        select * from mv where id = #{id}
+    </select>
 </mapper>

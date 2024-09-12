@@ -17,19 +17,33 @@ public class UserController {
     @RequestMapping("/info")
     @ResponseBody
     public User information(@RequestParam("account") String account) {
-        User user = userService.getUserByAccount(account);
+        User user;
+        try {
+            user = userService.getUserByAccount(account);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("获取用户信息异常");
+        }
+        if(user == null) {
+            throw new RuntimeException("获取用户信息失败");
+        }
         return user;
     }
 
-    @PostMapping("/changeinfo")
+    @PostMapping("/changeInfo")
     @ResponseBody
     public ResponseResult changeInfo(@RequestBody User user) {
+        Integer changeUser;
         try {
-            Integer changeUser = userService.changeInfo(user);
+            changeUser = userService.changeInfo(user);
+            System.out.println(changeUser);
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseResult(300,"修改失败");
+            throw new RuntimeException("修改信息异常");
         }
-        return new ResponseResult(200,"修改成功");
+        if (changeUser != 1) {
+            throw new RuntimeException("修改失败");
+        }
+        return new ResponseResult(200, "修改成功");
     }
 }

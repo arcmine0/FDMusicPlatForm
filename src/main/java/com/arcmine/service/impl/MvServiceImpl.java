@@ -19,4 +19,10 @@ public class MvServiceImpl implements MvService {
         List<Mv> mvList = mvMapper.getMvByStyle(style);
         return mvList;
     }
+
+    @Override
+    public Mv getMvById(Integer id) {
+        Mv mv = mvMapper.getMvById(id);
+        return mv;
+    }
 }

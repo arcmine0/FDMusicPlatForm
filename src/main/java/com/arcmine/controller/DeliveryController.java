@@ -20,16 +20,34 @@ public class DeliveryController {
     private MvService mvService;
 
     @ResponseBody
-    @GetMapping("/musicdelivery")
+    @GetMapping("/musicDelivery")
     public List<Song> MusicDelivery(@RequestParam("style") String style) {
-        List<Song> songs = songService.getSongByStyle(style);
+        List<Song> songs;
+        try {
+            songs = songService.getSongByStyle(style);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("获取音乐异常");
+        }
+        if (songs == null) {
+            throw new RuntimeException("获取音乐失败");
+        }
         return songs;
     }
 
     @ResponseBody
-    @GetMapping("/mvdelivery")
+    @GetMapping("/mvDelivery")
     public List<Mv> MvDelivery(@RequestParam("style") String style) {
-        List<Mv> mvs = mvService.getMvByStyle(style);
+        List<Mv> mvs;
+        try {
+            mvs = mvService.getMvByStyle(style);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("获取mv异常");
+        }
+        if (mvs == null) {
+            throw new RuntimeException("获取mv失败");
+        }
         return mvs;
     }
 }

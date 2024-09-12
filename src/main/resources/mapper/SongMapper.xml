@@ -10,4 +10,7 @@
     <select id="isSongInPlayList" resultType="com.arcmine.domain.ListPlay">
         select * from listplay where songid = #{songId} and playlistid = #{playListId}
     </select>
+    <select id="getSongById" resultType="com.arcmine.domain.Song">
+        select * from song where id = #{id}
+    </select>
 </mapper>

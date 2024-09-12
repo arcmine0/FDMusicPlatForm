@@ -13,5 +13,6 @@ public class Mv {
     private String artist;
     private String style;
     private String introduction;
+    private String picture;
     private String url;
 }

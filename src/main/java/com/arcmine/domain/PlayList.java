@@ -12,5 +12,5 @@ public class PlayList {
     private String title;
     private String picture;
     private String introduction;
-    private Integer userId;
+    private String useraccount;
 }
