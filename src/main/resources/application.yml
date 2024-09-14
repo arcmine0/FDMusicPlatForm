@@ -1,14 +1,17 @@
 spring:
   datasource:
-    url: jdbc:mysql://182.254.242.96:3306/fdmusicplatform?characterEncoding=utf-8&serverTimezone=UTC
-    username: developer
-    password: feidian52.com
+    url: jdbc:mysql://localhost:3306/fdmusicplatform?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: Cptbtptp1314521
     driver-class-name: com.mysql.cj.jdbc.Driver
+  web:
+    resources:
+      static-locations: file:/d:/music
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.arcmin.domain
+  type-aliases-package: com.arcmine.domain
 
-#server:
-#  address: 182.254.242.96
-#  port: 3666
+server:
+  address: 192.168.61.229
+  port: 8080

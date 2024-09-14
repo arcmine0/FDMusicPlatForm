@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class PlayList {
     private Integer id;
     private String title;
-    private String picture;
     private String introduction;
     private String useraccount;
 }

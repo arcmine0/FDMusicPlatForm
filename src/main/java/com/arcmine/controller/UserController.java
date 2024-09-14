@@ -36,7 +36,6 @@ public class UserController {
         Integer changeUser;
         try {
             changeUser = userService.changeInfo(user);
-            System.out.println(changeUser);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("修改信息异常");
