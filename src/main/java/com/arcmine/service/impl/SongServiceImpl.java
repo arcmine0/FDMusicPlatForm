@@ -22,14 +22,14 @@ public class SongServiceImpl implements SongService {
     }
 
     @Override
-    public Integer addToPlayList(Integer songId, Integer playId) {
-        Integer add = songMapper.addToPlayList(songId, playId);
+    public Integer addToPlayList(Integer songId, String playListTitle) {
+        Integer add = songMapper.addToPlayList(songId, playListTitle);
         return add;
     }
 
     @Override
-    public ListPlay isSongInPlayList(Integer songId, Integer playListId) {
-        ListPlay exists = songMapper.isSongInPlayList(songId, playListId);
+    public ListPlay isSongInPlayList(Integer songId, String playListTitle) {
+        ListPlay exists = songMapper.isSongInPlayList(songId, playListTitle);
         return exists;
     }
 

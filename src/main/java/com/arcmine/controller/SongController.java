@@ -6,7 +6,6 @@ import com.arcmine.domain.Song;
 import com.arcmine.service.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,10 +34,10 @@ public class SongController {
 
     @GetMapping("/addToPlayList")
     @ResponseBody
-    public ResponseResult addToPlayList(@RequestParam("songId") Integer songId, @RequestParam("playListId") Integer playListId) {
+    public ResponseResult addToPlayList(@RequestParam("songId") Integer songId, @RequestParam("playListTitle") String playListTitle) {
         ListPlay exists;
         try {
-            exists = songService.isSongInPlayList(songId, playListId);
+            exists = songService.isSongInPlayList(songId, playListTitle);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("获取歌单信息异常");
@@ -48,7 +47,7 @@ public class SongController {
         }
         Integer result;
         try {
-            result = songService.addToPlayList(songId, playListId);
+            result = songService.addToPlayList(songId, playListTitle);
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException("添加异常");

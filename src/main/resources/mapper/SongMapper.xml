@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.arcmine.mapper.SongMapper">
     <insert id="addToPlayList">
-        insert into listplay value (#{songId},#{playListId})
+        insert into listplay value (#{songId},(select id from playlist where title = #{playListTitle}))
     </insert>
     <select id="getSongByStyle" resultType="com.arcmine.domain.Song">
         select * from song where style = #{style} order by rand() limit 3
     </select>
     <select id="isSongInPlayList" resultType="com.arcmine.domain.ListPlay">
-        select * from listplay where songid = #{songId} and playlistid = #{playListId}
+        select * from listplay where songid = #{songId} and playlistid = (select id from playlist where title = #{playListTitle})
     </select>
     <select id="getSongById" resultType="com.arcmine.domain.Song">
         select * from song where id = #{id}

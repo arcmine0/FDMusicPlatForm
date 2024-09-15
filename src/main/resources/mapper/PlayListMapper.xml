@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.arcmine.mapper.PlayListMapper">
     <insert id="createPlayList">
-        insert into playlist value (null,#{title},#{picture},#{introduction},#{useraccount})
+        insert into playlist value (null,#{title},#{introduction},#{useraccount})
     </insert>
     <update id="changeListInfo">
-        update playlist set title = #{title},picture = #{picture},introduction = #{introduction} where id = #{id}
+        update playlist set title = #{title},introduction = #{introduction} where id = #{id}
     </update>
     <delete id="deleteSong">
         delete from listplay where songid = #{songId} and playlistid = #{playListId}

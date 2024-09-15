@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface SongMapper {
     List<Song> getSongByStyle(String style);
-    Integer addToPlayList(Integer songId,Integer playListId);
-    ListPlay isSongInPlayList(Integer songId, Integer playListId);
+    Integer addToPlayList(Integer songId,String playListTitle);
+    ListPlay isSongInPlayList(Integer songId, String playListTitle);
     Song getSongById(Integer id);
 }
